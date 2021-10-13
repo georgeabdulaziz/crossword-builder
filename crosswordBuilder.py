@@ -1,5 +1,4 @@
 # George Abdulaziz
-# 500947969
 
 def crossword(L):
     # Mainlist = L
