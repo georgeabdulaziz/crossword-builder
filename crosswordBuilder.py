@@ -28,7 +28,7 @@ def crossword(L):
         # check first if the word is too long
         if wordLength > boardLength:
             return False
-        # Put the word in to the board in the centre
+        # Put the word on the board in the centre
         for letterPos in range(wordLength):
             column = boardLength // 2 - wordLength // 2 + letterPos
             board[boardLength // 2][column] = word[letterPos]
@@ -66,7 +66,7 @@ def crossword(L):
             if (endOfWordIndexInBoard < LB-1) and (board[endOfWordIndexInBoard+1][col] != blank and board[endOfWordIndexInBoard+1][col] != word[LW-1]):  # the square under the end of the word on the board
                 continue
 
-            for i in range(startOfWordIndexInBoard, endOfWordIndexInBoard):  #  checking the squares on left and right of index in board and on index if they are empty
+            for i in range(startOfWordIndexInBoard, endOfWordIndexInBoard):  #  checking the squares on the left and the right of index in the board and on index if they are empty
                 if i != row:
                     if board[i][col - 1] != blank or board[i][col + 1] != blank:
                         passing = False
@@ -78,7 +78,7 @@ def crossword(L):
                             passing = False
                             break
 
-            if passing:  # placing the word in the boards
+            if passing:  # placing the word on the board
                 for i in range(startOfWordIndexInBoard, endOfWordIndexInBoard):
                     if i != row:
                         wordIndex = endOfWordIndexInBoard - (startOfWordIndexInBoard + (endOfWordIndexInBoard - i))
@@ -169,7 +169,7 @@ def crossword(L):
             boardWordMatchingLetters = findLetters(board, word)  #  this is a hash map or a dictionary of <letter, [(),()] the list of matching indexes in the map>
             if i % 2 == 1:  # placing the word vertically
                 for letter in boardWordMatchingLetters:
-                    letterPositions = boardWordMatchingLetters[letter]  # this is a list of tuples of all the matching positions of a letter in the boart
+                    letterPositions = boardWordMatchingLetters[letter]  # this is a list of tuples of all the matching positions of a letter on the board
                     if checkAndAddVertical(board, word, letter, letterPositions):
                         break  # word is placed
             else:
